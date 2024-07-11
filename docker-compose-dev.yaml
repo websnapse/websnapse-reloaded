@@ -1,6 +1,8 @@
 services:
   backend:
-    build: backend/.
+    build: 
+      context: backend/.
+      dockerfile: Dockerfile
     ports:
       - '8000:8080'
     develop:
@@ -13,7 +15,9 @@ services:
     ports:
       - '5173:80'
     develop:
-      build: frontend/.
+      build: 
+        context: frontend/.
+        dockerfile: Dockerfile.dev
       watch:
         - action: rebuild
           path: frontend/.
